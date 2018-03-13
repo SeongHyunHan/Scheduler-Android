@@ -1,5 +1,6 @@
 package com.seong.scheduler;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,13 +20,23 @@ public class LaunchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_launch);
 
         token = FirebaseInstanceId.getInstance().getToken();
+
         boolean checkedUser = checkUser(token);
 
-        Log.d(TAG, "token: " + token);
+        if(checkedUser == true){
+            Log.d(TAG, "User already registered");
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }else{
+            Log.d(TAG, "User not exist in DB");
+            // Register User to DB
+
+        }
+
     }
 
     private boolean checkUser(String token){
-        boolean checked = false;
+        boolean checked = true;
 
         return checked;
     }
