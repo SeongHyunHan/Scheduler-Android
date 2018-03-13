@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "15376601120",
+    "firebase_url": "https://scheduler-165b3.firebaseio.com",
+    "project_id": "scheduler-165b3",
+    "storage_bucket": "scheduler-165b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15376601120:android:55fb4d042c543a66",
+        "android_client_info": {
+          "package_name": "com.seong.scheduler"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15376601120-7mv7cj4htckr7ilodha4rdi0qu1k5oeg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.seong.scheduler",
+            "certificate_hash": "1e2f02165fd12929ee267377fd74db6edb527ff2"
+          }
+        },
+        {
+          "client_id": "15376601120-9clsqq28fak5dkh10j6u9qecvs1fmnnv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6xLwUh7XDpw8aEuT_I2zBwPyfaBi1NcA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15376601120-9clsqq28fak5dkh10j6u9qecvs1fmnnv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
