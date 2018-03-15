@@ -1,19 +1,18 @@
 package com.seong.scheduler.models;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by hans on 2018-03-13.
  */
 
 public class User {
+    @SerializedName("studentId")
     private int studentId;
+    @SerializedName("name")
     private String name;
+    @SerializedName("token")
     private String token;
-
-    public User(){
-        this.studentId = 0;
-        this.name = null;
-        this.token = null;
-    }
 
     public User(int studentId, String name, String token) {
         this.studentId = studentId;
