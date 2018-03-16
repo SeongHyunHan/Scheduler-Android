@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitInstance {
 
     private static Retrofit retrofit;
-    private static final String BASE_URL = "https://whispering-savannah-86341.herokuapp.com/";
+    private static final String BASE_URL = "https://secure-cove-20129.herokuapp.com/";
 
     public static Retrofit getRetrofitInstace() {
         if(retrofit == null){

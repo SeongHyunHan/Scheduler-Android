@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.gson.JsonObject;
@@ -15,6 +16,7 @@ import com.seong.scheduler.network.GetUserDataService;
 import com.seong.scheduler.network.RetrofitInstance;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,6 +28,7 @@ public class LaunchActivity extends AppCompatActivity {
 
     private EditText studentID, name;
     private Button submit;
+    private TextView userView;
 
     private String token;
     private GetUserDataService service;
@@ -38,6 +41,7 @@ public class LaunchActivity extends AppCompatActivity {
         name = findViewById(R.id.edtName);
         studentID = findViewById(R.id.edtID);
         submit = findViewById(R.id.btnSubmit);
+        userView = findViewById(R.id.tvUser);
 
         token = FirebaseInstanceId.getInstance().getToken();
 
@@ -67,15 +71,22 @@ public class LaunchActivity extends AppCompatActivity {
         call.enqueue(new Callback<UserList>() {
             @Override
             public void onResponse(Call<UserList> call, Response<UserList> response) {
-                Log.d(TAG, "On Response Called");
-                if(response.body().getUserList() == null){
+                Log.d(TAG, "On Response Called " + response.code());
+                if(response.body() == null){
                     Log.d(TAG, "Response 0");
+                }else{
+                    List<User> users = response.body().getUsers();
+                    Log.d(TAG, response + "");
+                    Log.d(TAG, response.body().getResult() + "");
+                    Log.d(TAG, response.body().getMessage() + "" );
+                    Log.d(TAG, response.body().getUsers() + "");
+                    Log.d(TAG, response.body() + "");
                 }
             }
 
             @Override
             public void onFailure(Call<UserList> call, Throwable t) {
-                Log.d(TAG, "On Failur Called");
+                Log.d(TAG, "On Failure Called");
             }
         });
 

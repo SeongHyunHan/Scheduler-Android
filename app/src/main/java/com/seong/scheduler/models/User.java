@@ -1,5 +1,6 @@
 package com.seong.scheduler.models;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -7,24 +8,36 @@ import com.google.gson.annotations.SerializedName;
  */
 
 public class User {
+
+    @SerializedName("_id")
+    @Expose
+    private String id;
     @SerializedName("studentId")
-    private int studentId;
+    @Expose
+    private Integer studentId;
     @SerializedName("name")
+    @Expose
     private String name;
     @SerializedName("token")
+    @Expose
     private String token;
+    @SerializedName("__v")
+    @Expose
+    private Integer v;
 
-    public User(int studentId, String name, String token) {
-        this.studentId = studentId;
-        this.name = name;
-        this.token = token;
+    public String getId() {
+        return id;
     }
 
-    public int getStudentId() {
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Integer getStudentId() {
         return studentId;
     }
 
-    public void setStudentId(int studentId) {
+    public void setStudentId(Integer studentId) {
         this.studentId = studentId;
     }
 
@@ -43,4 +56,14 @@ public class User {
     public void setToken(String token) {
         this.token = token;
     }
+
+    public Integer getV() {
+        return v;
+    }
+
+    public void setV(Integer v) {
+        this.v = v;
+    }
+
+
 }
