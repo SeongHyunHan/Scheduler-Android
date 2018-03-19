@@ -1,5 +1,8 @@
 package com.seong.scheduler.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -7,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by hans on 2018-03-13.
  */
 
-public class User {
+public class User implements Parcelable{
 
     @SerializedName("_id")
     @Expose
@@ -20,7 +23,7 @@ public class User {
     private String name;
     @SerializedName("token")
     @Expose
-    private String token;
+    private Token token;
     @SerializedName("__v")
     @Expose
     private Integer v;
@@ -49,11 +52,11 @@ public class User {
         this.name = name;
     }
 
-    public String getToken() {
+    public Token getToken() {
         return token;
     }
 
-    public void setToken(String token) {
+    public void setToken(Token token) {
         this.token = token;
     }
 
@@ -65,5 +68,40 @@ public class User {
         this.v = v;
     }
 
+    public User(int studentId, String name, Token token){
+        this.studentId = studentId;
+        this.name = name;
+        this.token = token;
+    }
 
+    public User(Parcel in){
+        this.id = in.readString();
+        this.studentId = in.readInt();
+        this.name = in.readString();
+        this.token = (Token) in.readParcelable(Token.class.getClassLoader());
+    }
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.id);
+        parcel.writeInt(this.studentId);
+        parcel.writeString(this.name);
+        parcel.writeParcelable(this.token, i);
+    }
+
+    public static final Creator<User> CREATOR = new Creator<User>() {
+        @Override
+        public User createFromParcel(Parcel in) {
+            return new User(in);
+        }
+
+        @Override
+        public User[] newArray(int size) {
+            return new User[size];
+        }
+    };
 }
